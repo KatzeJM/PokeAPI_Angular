@@ -1,0 +1,39 @@
+@import "../../../assets/styles/variables.scss";
+
+.container{
+  width: 96%;
+  height: 90%;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    
+}
+
+table{
+    min-width: 80%;
+
+    text-align: center;
+    margin: 0 auto;
+    
+}
+
+.mat-header-cell{
+    font-weight: bold;
+   
+}
+
+
+.mat-cell:first-letter {
+    text-transform: uppercase;
+}
+
+.mat-row:hover {
+    cursor: pointer;
+    background-color: rgba(253, 89, 0, 0.549);
+}
+
+html, body {
+     height: auto; 
+}

@@ -1,0 +1,45 @@
+<div class="container">
+
+
+  <mat-form-field>
+    <mat-label>PokeFiltro:</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input>
+</mat-form-field>
+  
+  <div class="example-container mat-elevation-z8">
+    <mat-paginator [pageSizeOptions]="[5,10,20]"></mat-paginator>
+    <mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.position}} </mat-cell>
+      </ng-container>
+  
+      <!-- Nombre  Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+      </ng-container>
+  
+      <!-- Imagen Column -->
+      <ng-container matColumnDef="image">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Pokemon </mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+            <img src="{{row.image}}" alt="" width="100" height="100">    
+        </mat-cell>
+      </ng-container>
+
+      
+     
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRow(row)">
+      </mat-row>
+    </mat-table>
+  
+   
+  </div>
+
+    
+</div>
