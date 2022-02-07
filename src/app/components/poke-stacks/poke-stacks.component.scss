@@ -1,16 +1,21 @@
 
 .header-i{
     background-size: cover;
+    margin-left: 10px;
 }
 
 .mat-card-title{
     text-transform: uppercase;
     color: white;
+    text-align: center;
+    margin: auto;
 
 }
 
 .mat-card-subtitle{
     color: black;
+    text-align: left;
+    font-size: medium;
 }
 
 .card{
@@ -20,8 +25,9 @@
 }
 
 .mat-card-header{
-    background-color:rgba(69, 150, 255, 0.891);
+    background-color:rgba(41, 91, 157, 0.891);
     border-radius: 10px;
     padding-top: 10px;
     border-color: rgb(0, 0, 0);
+    margin: auto;
 }
