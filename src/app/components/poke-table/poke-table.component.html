@@ -34,7 +34,7 @@
      
   
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRow(row)" >
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="getRow(row)" (click)="openDialog()"  >
       </mat-row>
     </mat-table>
   
@@ -42,4 +42,4 @@
   </div>
 
     
-</div>
+</div>s

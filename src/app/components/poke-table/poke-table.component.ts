@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild , Input} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
@@ -20,10 +20,13 @@ export class PokeTableComponent implements OnInit {
   dataSource = new MatTableDataSource<any>(this.data);
   //Paginacion
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator; // paginator(!)como un sufijo al nombre de la variable.
+  
+    pokemon : any ='';
+    pokeType=[];
+    pokeType1=[];
+    pokeImg = '';
+
  
-
-
-  pokemons = [];
 
 
   
@@ -40,23 +43,13 @@ export class PokeTableComponent implements OnInit {
   }
 
   
-  openDialog(){
-    this.dialogRef.open(Component)
-  }
+  
   
   ngOnInit(): void {
     this.getPokemons();
   }
 
-  //Filter Generico
-  // applyFilter(filterValue: string) {
-  //   filterValue = filterValue.trim(); // Elimina espacios
-  //   filterValue = filterValue.toLowerCase(); // Datasource predeterminado coicidencias lowercase 
-  //   this.dataSource.filter = filterValue;
-  // }
 
-
- //Filtro V2
  applyFilter(event: Event) {
   const filterValue = (event.target as HTMLInputElement).value;
   this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -96,20 +89,29 @@ export class PokeTableComponent implements OnInit {
 
 
  
+  
+
  //Obtiene elemento seleccionado
  getRow(row:any){
   // console.log(row);
-  this.dialogRef.open(PokeStacksComponent)
+  // this.dialogRef.open(PokeStacksComponent) 
   this.router.navigateByUrl(`/pokeStack/${row.position}`);
 }
 
 
 
- //Metodo para Obtener el ID
+//  Metodo para Obtener el ID
  getPokemon(id:number){
   this.pokemonService.getPokemon(id).subscribe(
    res =>{
-     console.log(res);
+     console.log(res)
+    //  console.log(this.pokemon);
+
+     this.pokemon = res;
+     this.pokeImg = this.pokemon.sprites.front_default;
+     this.pokeType= res.types[0].type.name;
+     this.pokeType1= res.types[1].type.name;
+
    },
    err =>{
 
@@ -118,4 +120,22 @@ export class PokeTableComponent implements OnInit {
 }
 
 
+
+openDialog(){
+  this.dialogRef.open(PokeStacksComponent,{
+    data : {
+      pokeName :this.pokemon.name,
+      pokeId :this.pokemon.id,
+      pokeType:  this.pokeType,
+      pokeType1:  this.pokeType1,
+      pokeH :this.pokemon.height,
+      pokeW :this.pokemon.weight,
+      pokeImg:  this.pokeImg
+    }
+  })
+
+  
 }
+
+}
+
