@@ -1,5 +1,5 @@
 21:53 5/02/2022
-Proyecto donde se consume el API de pokemon (POKE API)
+Proyecto - Consumir  el API de pokemon (POKE API)
 
 **Tecnologías**
 --Angular 12
