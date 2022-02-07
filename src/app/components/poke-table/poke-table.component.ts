@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiService } from 'src/app/services/api.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import {PokeStacksComponent} from '../poke-stacks/poke-stacks.component'
 
 
 @Component({
@@ -17,15 +20,30 @@ export class PokeTableComponent implements OnInit {
   dataSource = new MatTableDataSource<any>(this.data);
   //Paginacion
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator; // paginator(!)como un sufijo al nombre de la variable.
-
+ 
 
 
   pokemons = [];
 
 
   
-  constructor(private ApiService: ApiService) { }
+  constructor(private ApiService: ApiService, private router: Router, private dialogRef:MatDialog, private pokemonService:ApiService, private activateRouter:ActivatedRoute) { 
 
+    this.activateRouter.params.subscribe(
+      params =>{
+        this.getPokemon(params['id']);
+
+      }
+
+    );
+    
+  }
+
+  
+  openDialog(){
+    this.dialogRef.open(Component)
+  }
+  
   ngOnInit(): void {
     this.getPokemons();
   }
@@ -50,7 +68,7 @@ export class PokeTableComponent implements OnInit {
 
   getPokemons(){ 
     let infoPokemon;
-
+//Cambiar el valor para mostrar mas pokemones, i=id pokemon
     for(let i =21; i<=30; i++){ 
       this.ApiService.getPokemon(i).subscribe(  
         res => {
@@ -63,7 +81,7 @@ export class PokeTableComponent implements OnInit {
           this.data.push(infoPokemon) //Se almacen los datos de dataP a el array data
           this.dataSource = new MatTableDataSource<any>(this.data) //Actualizar dataSource que se inicializa vacio
           this.dataSource.paginator = this.paginator;
-          console.log(res)
+          // console.log(res)
         },
         err =>{
           console.log(err)
@@ -76,14 +94,28 @@ export class PokeTableComponent implements OnInit {
   }
 
 
-  
 
-
-getRow(row:number){
-  console.log(row); 
-
+ 
+ //Obtiene elemento seleccionado
+ getRow(row:any){
+  // console.log(row);
+  this.dialogRef.open(PokeStacksComponent)
+  this.router.navigateByUrl(`/pokeStack/${row.position}`);
 }
 
+
+
+ //Metodo para Obtener el ID
+ getPokemon(id:number){
+  this.pokemonService.getPokemon(id).subscribe(
+   res =>{
+     console.log(res);
+   },
+   err =>{
+
+   }
+  );
+}
 
 
 }

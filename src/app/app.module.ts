@@ -23,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    MaterialModule, //"../shared/material.module.ts" --> Angular Material Components
     HttpClientModule
   ],
   providers: [],
