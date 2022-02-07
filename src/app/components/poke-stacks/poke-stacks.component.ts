@@ -12,20 +12,25 @@ export class PokeStacksComponent implements OnInit {
 
   PokeNombre:any;
   PokeTipo:any;
-  PokeTipo1:any;
+  PokeMove:any;
   PokeImg:any;
   PokeNo:any;
   PokeA :any;
   PokeP : any;
+  
 
 
-   constructor(@Inject(MAT_DIALOG_DATA) public data:any) {
+   constructor(@Inject(MAT_DIALOG_DATA) public data:any)
+   
+   
+   {
+
     this.PokeNombre=data.pokeName
     this.PokeTipo=data.pokeType
     this.PokeImg=data.pokeImg
     this.PokeNo=data.pokeId
     this.PokeA=data.pokeH
-    this.PokeTipo1=data.pokeType1
+    this.PokeMove=data.pokeMoves
     this.PokeP=data.pokeW
 
   } 

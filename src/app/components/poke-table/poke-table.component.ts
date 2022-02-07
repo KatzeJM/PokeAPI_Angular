@@ -23,7 +23,7 @@ export class PokeTableComponent implements OnInit {
   
     pokemon : any ='';
     pokeType=[];
-    pokeType1=[];
+    pokeMoves=[];
     pokeImg = '';
 
  
@@ -102,21 +102,25 @@ export class PokeTableComponent implements OnInit {
 
 //  Metodo para Obtener el ID
  getPokemon(id:number){
-  this.pokemonService.getPokemon(id).subscribe(
+  this.ApiService.getPokemon(id).subscribe(
    res =>{
-     console.log(res)
+    //  console.log(res)
     //  console.log(this.pokemon);
-
-     this.pokemon = res;
+    console.log(id)
+    
+     this.pokemon = res;  
      this.pokeImg = this.pokemon.sprites.front_default;
      this.pokeType= res.types[0].type.name;
-     this.pokeType1= res.types[1].type.name;
+     this.pokeMoves= res.moves[0].move.name;
 
+  
    },
    err =>{
 
    }
   );
+
+  
 }
 
 
@@ -127,7 +131,7 @@ openDialog(){
       pokeName :this.pokemon.name,
       pokeId :this.pokemon.id,
       pokeType:  this.pokeType,
-      pokeType1:  this.pokeType1,
+      pokeMoves:  this.pokeMoves,
       pokeH :this.pokemon.height,
       pokeW :this.pokemon.weight,
       pokeImg:  this.pokeImg

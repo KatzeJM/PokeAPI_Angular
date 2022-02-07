@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit {
     
 
   }
-  pokeStack(){
-    this.router.navigateByUrl('/pokeStack');
+  pokeLista(){
+    this.router.navigateByUrl('/Pokemones');
     
 
   }
