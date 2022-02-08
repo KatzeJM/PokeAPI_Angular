@@ -14,8 +14,8 @@
   .slider ul{
     padding: 0;
     display: flex;
-    width: 400%;
-    animation: cambio 15s infinite alternate;
+    width: 200%; //Cambiar el % en base a las imagenes, por cada img +100%
+    animation: cambio 7s infinite alternate;
   }
   .slider li{
     list-style: none;
@@ -27,13 +27,13 @@
   }
   @keyframes cambio{
     0%{margin-left: 0%;}
-    20%{margin-left: 0%;}
-    25%{margin-left: -100%;}
-    45%{margin-left: -100%;}
-    50%{margin-left: -200%;}
-    70%{margin-left: -200%;}
-    75%{margin-left: -300%;}
-    100%{margin-left: -300%;}
+    45%{margin-left: 0%;}
+    55%{margin-left: -100%;}
+    100%{margin-left: -100%;}
+    // 50%{margin-left: -200%;}
+    // 70%{margin-left: -200%;}
+    // 75%{margin-left: -300%;}
+    // 100%{margin-left: -300%;}
 
     // 0%{margin-left: 0%;}
     // 70%{margin-left: -200%;}
@@ -44,7 +44,9 @@
   .text-slider{
     background: rgb(45, 45, 45, 0.8);
     font-family: Arial;
+    font-size: large;
     color: white;
     text-align: center;
     padding: 5px;
   }
+  

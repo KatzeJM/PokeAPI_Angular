@@ -5,6 +5,13 @@
     
 }
 
+.mat-card-image {
+    width: 70%;
+    margin: auto;
+    display: block;
+    overflow: hidden;
+}
+
 .mat-card-title{
     text-transform: uppercase;
     color: white;
@@ -23,6 +30,7 @@
     margin-top: 10px;
     margin: auto;
  
+ 
 
 }
 
@@ -32,4 +40,19 @@
     padding-top: 10px;
     border-color: rgb(0, 0, 0);
     margin: auto;
+}
+
+.mat-dialog-container {
+    display: block;
+    padding: 24px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
+    width: 80%;
+    height: 80%;
+    min-height: inherit;
+    max-height: inherit;
+    border-color: black;
+    box-shadow: 100px;
 }
