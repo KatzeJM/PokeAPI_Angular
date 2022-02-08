@@ -1,4 +1,3 @@
-21:53 5/02/2022
 Proyecto - Consumir  el API de pokemon (POKE API)
 
 **Tecnologías**
@@ -13,3 +12,4 @@ Proyecto - Consumir  el API de pokemon (POKE API)
 
 
 **Proyecto**
+Version del proyecto Con Modal

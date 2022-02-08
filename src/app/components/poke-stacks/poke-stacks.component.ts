@@ -9,7 +9,6 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 export class PokeStacksComponent implements OnInit {
-
   PokeNombre:any;
   PokeTipo:any;
   PokeMove:any;
@@ -19,10 +18,8 @@ export class PokeStacksComponent implements OnInit {
   PokeP : any;
   
 
-
-   constructor(@Inject(MAT_DIALOG_DATA) public data:any)
-   
-   
+   constructor(@Inject(MAT_DIALOG_DATA) public data:any) //inyeccion de Data
+      
    {
 
     this.PokeNombre=data.pokeName
@@ -36,7 +33,6 @@ export class PokeStacksComponent implements OnInit {
   } 
 
  
-
 
   ngOnInit(): void {
   }
