@@ -13,3 +13,5 @@ Proyecto - Consumir  el API de pokemon (POKE API)
 
 **Proyecto**
 Version del proyecto Con Modal
+
+![image](https://user-images.githubusercontent.com/99008021/152921234-989101f3-3f68-4930-bf79-08c3da2b020a.png)
